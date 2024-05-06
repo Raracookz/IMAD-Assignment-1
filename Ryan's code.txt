@@ -1,0 +1,98 @@
+package com.example.historyapp
+
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import android.widget.Button
+import android.widget.EditText
+import android.widget.TextView
+
+class MainActivity : AppCompatActivity() {
+    private var enterAge: EditText?= null
+    private var info : TextView? = null
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+
+        enterAge = findViewById(R.id.enterAge)
+        info = findViewById(R.id.info)
+
+        val generateHistory = findViewById<Button>(R.id.generateHistory)
+        generateHistory.setOnClickListener{
+            generateHistory()
+        }
+        val clear = findViewById<Button>(R.id.clear)
+        clear.setOnClickListener{
+            clearTheScreen()
+        }
+        
+    }
+    
+    }
+
+
+}
+
+    private fun generateHistory() {
+        //read out the age
+        //make sure the age is correct (error)
+
+        //search for age in data array
+        //show response or show no response
+
+        var intAge: Int = 0
+        var strOutput = ""
+
+        val strEnteredValue = enterAge?.text.toString().trim()
+
+        if (strEnteredValue.isEmpty()){
+            enterAge?.error = "Enter valid age"
+            return
+        }
+
+        try {
+            intAge = strEnteredValue.toInt()
+            if (intAge < 20 || intAge > 100) {
+                //info?.text = "Error - Invalid Age"
+                enterAge?.error = "Invalid Age"
+            }else {
+                when (intAge) {
+                    39 -> strOutput = "Your'e 39 years of age ! The same age when Martin Luther King Jr. was shot dead while standing on a balcony outside his second-floor room at the Lorraine Motel in Memphis, Tennessee."
+                    76 -> strOutput = "Your'e 76 years of age ! The same age when Albert Einstein passed away due to a blood vessel bursting near his heart."
+                    56 -> strOutput = "Your'e 56 years of age ! The same age when Abraham Lincoln was shot dead in the head as he watched the play in the theatre."
+                    52 -> strOutput = "Your'e 52 years of age ! The same age when William shakespeare passed on. His cause of death is unknown, but it was most likely some kind of fever or illness that killed him."
+                    74 -> strOutput = "Your'e 74 years of age ! The same age when Joseph Stalin died of a massive hemorrhagic stroke involving his left cerebral hemisphere.(a sudden bleeding into the tissues of the brain)"
+                    56 -> strOutput = "Your'e 56 years of age ! The same age when Adolf Hitler committed suicide in his underground bunker as soviet troops entered the heart of Berlin."
+                    69 -> strOutput = "Your'e 69 years of age ! The same age when Queen Elizabeth I passed on from blood poisoning."
+                    95 -> strOutput = "Your'e 95 years of age ! The same age when Nelson Mandela passed on from a prolonged respiratory infection."
+                    30 -> strOutput = "Your'e 30 years of age ! The same age when Steve Biko passed on from a brain hemorrhage."
+                    95 -> strOutput = "Your'e 95 years of age ! The same age when Rosa Parks died of natural causes (disease) leaving behind a rich legacy of resistance against racial discrimination and injustice."
+                    18 -> strOutput = "Your'e 18 years of age ! The same age when King Tutankhamen passed on from malaria, perhaps in combination with degenerative bone disease, may have been the cause of death."
+                    74 -> strOutput = "Your'e 74 years of age ! The same age when Muhammad Ali passed on to septic shock due to unspecified natural causes, he was a great boxer though..."
+                    51 -> strOutput = "Your'e 51 years of age ! The same age when Napoleon Bonaparte advanced malignant gastric neoplasia associated with upper gastrointestinal bleeding as cause of death.(general term for a type of cancer that originates within the stomach)."
+                    //The above code displaying ages between 18-95 represent the celebrities and important people in history that will be displayed if the correct age is inputted correctly.
+                    else ->
+                }
+            }
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            }
+        }
+   
+    }
+}
